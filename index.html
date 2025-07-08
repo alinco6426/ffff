@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hidden { display: none; }
+    label, select, input { display: block; margin: 10px 0; }
+    .question { margin-bottom: 20px; }
+    .answer-block { margin-bottom: 10px; }
+    .correction { border-top: 1px solid #ccc; padding-top: 10px; margin-top: 10px; }
+    .correction p { margin: 5px 0; } body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    select, input[type="text"], button {
+      margin: 10px 0;
+      padding: 6px;
+      font-size: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .answer-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 5px 0;
+    }
+
+    .correction {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 10px;
+      background: #f9f9f9;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+
+    #quiz-screen, #result-screen {
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Selection screen -->
+    <div id="selection-screen">
+      <h2>Select Quiz</h2>
+      <label>Course:
+        <select id="course-select"></select>
+      </label>
+      <label>Topic:
+        <select id="topic-select"></select>
+      </label>
+      <label>Type:
+        <select id="type-select">
+          <option value="mcqs">MCQs</option>
+          <option value="fitg">Fill in the Gap</option>
+        </select>
+      </label>
+      <p id="total-available">Available: 0</p>
+      <label>Select number of questions:
+        <select id="question-range">
+          <option value="5">1–5</option>
+          <option value="10">1–10</option>
+          <option value="20">1–20</option>
+          <option value="30">1–30</option>
+          <option value="50">1–50</option>
+        </select>
+      </label>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz screen -->
+    <div id="quiz-screen" class="hidden">
+      <h2>Quiz</h2>
+      <div id="quiz-container"></div>
+      <button onclick="endQuiz()">End Quiz</button>
+    </div>
+
+    <!-- Result screen -->
+    <div id="result-screen" class="hidden">
+      <h2>Your Score: <span id="score"></span></h2>
+      <div id="corrections"></div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
