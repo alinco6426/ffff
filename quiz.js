@@ -15,7 +15,7 @@ const availableText = document.getElementById("total-available");
 
 window.onload = async () => {
   try {
-    const res = await fetch("/questions.json");
+    const res = await fetch("questions.json");
     quizData = await res.json();
     populateCourses();
   } catch (err) {
